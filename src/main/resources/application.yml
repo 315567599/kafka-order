@@ -1,0 +1,4 @@
+kafka:
+  bootstrap-servers: 192.168.255.155:9092
+  topic:
+    json: json.t

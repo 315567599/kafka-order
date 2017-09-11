@@ -1,0 +1,6 @@
+com\jiangchao\SpringKafkaApplication.class
+com\jiangchao\kafka\consumer\Receiver.class
+com\jiangchao\kafka\consumer\ReceiverConfig.class
+com\jiangchao\kafka\producer\Sender.class
+com\jiangchao\kafka\producer\SenderConfig.class
+com\jiangchao\model\Car.class
