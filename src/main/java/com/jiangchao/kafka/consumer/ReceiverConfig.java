@@ -2,7 +2,7 @@ package com.jiangchao.kafka.consumer;
 
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.deser.std.StringDeserializer;
-import com.jiangchao.model.Car;
+import com.jiangchao.model.Order;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -32,23 +32,23 @@ public class ReceiverConfig {
        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-       props.put(ConsumerConfig.GROUP_ID_CONFIG, "json");
+       props.put(ConsumerConfig.GROUP_ID_CONFIG, "order");
 
        return props;
     }
 
     @Bean
-    public ConsumerFactory<String, Car> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<String, Car>(
+    public ConsumerFactory<String, Order> consumerFactory() {
+        return new DefaultKafkaConsumerFactory<String, Order>(
                 consumerConfigs(),
                 new org.apache.kafka.common.serialization.StringDeserializer(),
-                new org.springframework.kafka.support.serializer.JsonDeserializer<>(Car.class)
+                new org.springframework.kafka.support.serializer.JsonDeserializer<>(Order.class)
         );
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Car> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, Car> factory = new ConcurrentKafkaListenerContainerFactory<>( );
+    public ConcurrentKafkaListenerContainerFactory<String, Order> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, Order> factory = new ConcurrentKafkaListenerContainerFactory<>( );
         factory.setConsumerFactory(consumerFactory());
 
         return factory;

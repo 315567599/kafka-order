@@ -4,11 +4,11 @@ package com.jiangchao.kafka.consumer;
  * Created by Administrator on 2017/9/11.
  */
 
+import com.jiangchao.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 
-import com.jiangchao.model.Car;
 import org.springframework.kafka.annotation.KafkaListeners;
 
 import java.util.concurrent.CountDownLatch;
@@ -22,8 +22,8 @@ public class Receiver {
     }
 
     @KafkaListener(topics = "${kafka.topic.json}")
-    public void receive(Car car) {
-        LOGGER.info("received car ={}", car.toString());
+    public void receive(Order order) {
+        LOGGER.info("received order ={}", order.toString());
         //latch.countDown();
     }
 }

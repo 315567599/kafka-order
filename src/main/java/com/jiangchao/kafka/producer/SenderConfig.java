@@ -18,7 +18,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.jiangchao.model.Car;
+import com.jiangchao.model.Order;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 @Configuration
@@ -38,13 +38,13 @@ public class SenderConfig {
     }
 
     @Bean
-    public ProducerFactory<String, Car> producerFactory() {
-        return new DefaultKafkaProducerFactory<String, Car>(producerConfigs());
+    public ProducerFactory<String, Order> producerFactory() {
+        return new DefaultKafkaProducerFactory<String, Order>(producerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, Car> kafkaTemplate() {
-       return new KafkaTemplate<String, Car>(producerFactory());
+    public KafkaTemplate<String, Order> kafkaTemplate() {
+        return new KafkaTemplate<String, Order>(producerFactory());
     }
 
     @Bean
