@@ -1,6 +1,10 @@
-com\jiangchao\model\Order.class
-com\jiangchao\SpringKafkaApplication.class
+com\jiangchao\dao\OrderRepository.class
 com\jiangchao\kafka\consumer\Receiver.class
 com\jiangchao\kafka\consumer\ReceiverConfig.class
-com\jiangchao\kafka\producer\Sender.class
+com\jiangchao\dao\OrderExceptionRepository.class
 com\jiangchao\kafka\producer\SenderConfig.class
+com\jiangchao\dao\OrderRepository$1.class
+com\jiangchao\model\Order.class
+com\jiangchao\SpringKafkaApplication.class
+com\jiangchao\model\OrderException.class
+com\jiangchao\kafka\producer\Sender.class

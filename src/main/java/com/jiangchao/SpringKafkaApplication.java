@@ -15,6 +15,7 @@ public class SpringKafkaApplication {
        int loop = 100;
        Sender sender = ctx.getBean(Sender.class);
        while (loop-- > 0) {
+           order.setPrice(loop);
            sender.send(order);
        }
     }
