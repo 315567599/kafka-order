@@ -18,9 +18,10 @@ import org.springframework.kafka.annotation.KafkaListeners;
 import java.util.concurrent.CountDownLatch;
 
 public class Receiver {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Receiver.class);
     private static final String SMALL_PRICE = "价格过小";
+    private static final Logger LOGGER = LoggerFactory.getLogger(Receiver.class);
     private CountDownLatch latch = new CountDownLatch(1);
+
     @Autowired
     OrderRepository repository;
 
@@ -38,6 +39,5 @@ public class Receiver {
             exceptionRepository.insert(new OrderException(order.getOrderID(), SMALL_PRICE));
         }
         LOGGER.info("received order ={}", order.toString());
-        //latch.countDown();
     }
 }
